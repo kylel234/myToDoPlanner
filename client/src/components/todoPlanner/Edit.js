@@ -12,7 +12,7 @@ export default function Edit({ tasks, setIsChange }) {
     headers.append("jwt_token", localStorage.token);
 
     const text = { description };
-    await fetch(`http://localhost:3001/dashboard/todo/${tasks.id}`, {
+    await fetch(`/dashboard/todo/${tasks.id}`, {
         method: "PUT",
         headers: headers,
         body: JSON.stringify(text)

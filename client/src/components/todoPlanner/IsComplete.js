@@ -11,7 +11,7 @@ export default function IsComplete( {toDo, setToDo, id, iscomplete, setIsChange}
         headers.append("jwt_token", localStorage.token);
 
         const bool = { iscomplete: true };
-        await fetch(`http://localhost:3001/dashboard/todo/${id}`, {
+        await fetch(`/dashboard/todo/${id}`, {
             method: "PUT",
             headers: headers,
             body: JSON.stringify(bool)

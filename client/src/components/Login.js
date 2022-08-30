@@ -23,7 +23,7 @@ export default function Login({setAuthenticate}) {
     async function login(e) {
         e.preventDefault();
         const logInfo = {email, password};
-        const res = await fetch("http://localhost:3001/authenticate/login", {
+        const res = await fetch("/authenticate/login", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(logInfo)

@@ -8,7 +8,7 @@ export default function ToDos({allToDos, setIsChange}) {
 
     // delete a to do 
     async function deleteToDo(id) {
-        await fetch(`http://localhost:3001/dashboard/todo/${id}`, {
+        await fetch(`/dashboard/todo/${id}`, {
             method: "DELETE",
             headers: {jwt_token: localStorage.token}
         });

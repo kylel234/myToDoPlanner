@@ -13,7 +13,7 @@ export default function Input({ setIsChange }) {
         headers.append("jwt_token", localStorage.token);
 
         const text = { description };
-        const response = await fetch("http://localhost:3001/dashboard/todo", {
+        const response = await fetch("/dashboard/todo", {
             method: "POST",
             headers: headers,
             body: JSON.stringify(text)

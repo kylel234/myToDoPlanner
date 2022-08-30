@@ -24,7 +24,7 @@ export default function Register({setAuthenticate}) {
     async function register(e) {
         e.preventDefault(); // prevents refreshing when hitting register button
         const regInfo = {username, email, password};
-        const response = await fetch("http://localhost:3001/authenticate/register", {
+        const response = await fetch("/authenticate/register", {
             method: "POST",
             headers: {"Content-Type" : "application/json"},
             body: JSON.stringify(regInfo)

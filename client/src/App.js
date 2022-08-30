@@ -31,10 +31,17 @@ function App() {
     setMode((currMode) => (currMode === "light" ? "dark" : "light"));
   }
 
+  // create proxy for localhost(see package.json in client folder), links like  http://localhost:3001/dashboard/todo/${tasks.id}
+  // will only work on local environment
+  // So we create a proxy so that we can use the app in development since it will be ignored in production
+  // since there is no localhost specified it will use the heroku domain
+  // ex: https://name of app herokuapp.com/name of method
+  // heroku app helps serve the build static content while holding the restful api
+
   // make sure user stay in dashboard if they are still authenticated,
   // needs to get jwtoken to authorize user
   async function stillAuth() {
-    const res = await fetch("http://localhost:3001/authenticate/verify", {
+    const res = await fetch("/authenticate/verify", {
       method: "POST",
       headers: {jwt_token : localStorage.token}
     });
