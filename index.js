@@ -88,6 +88,11 @@ app.use("/dashboard", require("./routes/dashboard"));
     }
 });*/
 
+// if user request not in public folder like a route that doesnt match the one's I set
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client/build/index.html"));
+});
+
 app.listen(process.env.PORT || 3001, () => {
     console.log("Server starts");
 });
