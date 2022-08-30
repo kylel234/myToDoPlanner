@@ -3,6 +3,7 @@ const app = express();
 const cors = require("cors"); // used to interact w/ diff domain apps, so backend can interact w/ frontend
 //const pool = require("./db.js"); // gives access to run queries, as db.js code connects db to server
 //const router = require("./routes/authentication");
+const path = require("path");
 
 //Middleware//
 app.use(cors());
@@ -10,7 +11,7 @@ app.use(express.json()); // allows access to req.body(to access data from client
 
 if (process.env.NODE_ENV === "production") {
     // allows us to serve static content to directory specified by us
-    app.use(express.static(__dirname + '/client/build')); 
+    app.use(express.static(path.join(__dirname, "client/build"))); 
 }
 
 //console.log((__dirname + '/client/build'));
