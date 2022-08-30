@@ -20,7 +20,10 @@ const developmentConfig = {
 
 // if in production use this to connect to db
 const productionConfig = {
-    connectionString: process.env.DATABASE_URL // DATABASE_URL comes from heroku addon so we can connect to postgres db cloud service, thus our app can use postgres db
+    connectionString: process.env.DATABASE_URL, // DATABASE_URL comes from heroku addon so we can connect to postgres db cloud service, thus our app can use postgres db
+    ssl: {
+        rejectUnauthorized: false
+    }
 }
 //console.log(process.env.PG_PASSWORD);
 
