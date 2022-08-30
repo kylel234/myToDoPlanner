@@ -9,10 +9,10 @@ const verifyUserInfo = require("../middleware/verifyUserInfo");
 // register
 
 router.post("/register", verifyUserInfo, async(req, res) => {
-    try {
+    // destructure user registration info/req.body
+    const {username, email, password} = req.body;
 
-        // destructure user registration info/req.body
-        const {username, email, password} = req.body;
+    try {
 
         // $1 is variable for email and the first argument, check user exists via email since email is unique
         const user = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
@@ -42,11 +42,11 @@ router.post("/register", verifyUserInfo, async(req, res) => {
 });
 
 // login
-router.post("/login", verifyUserInfo, async(req, res) => {
-    try {
+router.post("/login", verifyUserInfo, async (req, res) => {
+    // destructure user login info/req.body
+    const {email, password} = req.body;
 
-        // destructure user login info/req.body
-        const {email, password} = req.body;
+    try {
 
         // $1 is variable for email and the first argument, check user exists via email since email is unique
         const user = await pool.query("SELECT * FROM users WHERE email = $1", [email]);
@@ -57,7 +57,8 @@ router.post("/login", verifyUserInfo, async(req, res) => {
         }
 
         // checks that encrypted pass matches the one stored in the db for that user
-        const checkPass = bcrypt.compare(password, user.rows[0].password);
+        const checkPass = await bcrypt.compare(password, user.rows[0].password);
+        
         if (!checkPass) {
             return res.status(401).json("Incorrect password");
         }

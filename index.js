@@ -91,7 +91,7 @@ app.use("/dashboard", require("./routes/dashboard"));
 });*/
 
 // keeps client side routing functional, so whenever user inputs unkown routes it still reroutes to the correct route
-app.get('/*', (req, res) => {
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
