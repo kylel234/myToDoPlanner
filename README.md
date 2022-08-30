@@ -2,7 +2,7 @@
 
 ### This project provides users with their own personal ToDo Planner.
 
-#### Used: React.js, Bootstrap, Postgresql, Node.js, Express
+#### Used: Postgresql, Express, React.js, Node.js, Bootstrap
 #### Deployed: Heroku
 
 
