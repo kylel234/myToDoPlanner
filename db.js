@@ -1,5 +1,5 @@
+require('dotenv').config();
 const Pool = require("pg").Pool; // gets pg library so we can use it to connect our db to our server
-require("dotenv").config();
 
 /*const pool = new Pool({
     user: "postgres",
@@ -22,8 +22,10 @@ const developmentConfig = {
 const productionConfig = {
     connectionString: process.env.DATABASE_URL // DATABASE_URL comes from heroku addon so we can connect to postgres db cloud service, thus our app can use postgres db
 }
+console.log(process.env.PG_PASSWORD);
 
 // chooses the config based on if app is in production
 const pool = new Pool(process.env.NODE_ENV === "production" ? productionConfig : developmentConfig);
+//console.log(process.env.DB_PASSWORD);
 
 module.exports = pool;

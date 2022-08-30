@@ -14,6 +14,7 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "client/build"))); 
 }
 
+//console.log(path.join(__dirname, "client/build"));
 //console.log((__dirname + '/client/build'));
 //Routes//
 
@@ -87,11 +88,6 @@ app.use("/dashboard", require("./routes/dashboard"));
         console.log(error.message);
     }
 });*/
-
-// if user request not in public folder like a route that doesnt match the one's I set
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client/build/index.html"));
-});
 
 app.listen(process.env.PORT || 3001, () => {
     console.log("Server starts");
