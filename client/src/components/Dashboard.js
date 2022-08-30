@@ -9,7 +9,7 @@ export default function Dashboard({ setAuthenticate }) {
   const [isChange, setIsChange] = useState(false);
 
   const getUserInfo = async () => {
-    const res = await fetch("/dashboard/", {
+    const res = await fetch("/dashboard/all", {
       method: "GET",
       headers: { jwt_token: localStorage.token }
     });

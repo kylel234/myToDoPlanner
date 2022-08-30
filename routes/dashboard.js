@@ -6,7 +6,7 @@ const authorize = require("../middleware/authorize");
 // authorize middleware makes sure that the user must be authorized in order to access these routes and perform crud functions
 
 // get all todos and username
-router.get("/", authorize, async(req, res) => {
+router.get("/all", authorize, async(req, res) => {
     try {
         // use left join cause it gets all data from left table regardless of relationships, WHERE specifies that we get the todo data that belongs to that specific user
         // take out password and email since user doesnt need to see that
