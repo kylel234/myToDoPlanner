@@ -18,18 +18,6 @@ import 'react-toastify/dist/ReactToastify.css';
 export const ThemeContext = createContext(null); // allows for the light/dark mode toggling functionality to apply to the whole site
 
 function App() {
-  const [mode, setMode] = useState("light"); // state that stores the current mode, default is light mode
-  const [isAuthenticated, setAuthenticated] = useState(false) // state for checking authentication, default is false
-
-  // changes state to reflect if user is authenticated
-  const setAuthenticate = (isAuth) => {
-    setAuthenticated(isAuth);
-  }
-
-  // checks if mode is currently light if not setsMode to the current mode
-  const toggleMode = () => {
-    setMode((currMode) => (currMode === "light" ? "dark" : "light"));
-  }
 
   // create proxy for localhost(see package.json in client folder), links like  http://localhost:3001/dashboard/todo/${tasks.id}
   // will only work on local environment
@@ -50,6 +38,19 @@ function App() {
     //console.log(parseResponse);
     // checks to see if user is still authenticated and if so user stays in dashboard
     parseResponse ===  true ? setAuthenticated(true) : setAuthenticated(false);
+  }
+  
+  const [mode, setMode] = useState("light"); // state that stores the current mode, default is light mode
+  const [isAuthenticated, setAuthenticated] = useState(false) // state for checking authentication, default is false
+
+  // checks if mode is currently light if not setsMode to the current mode
+  const toggleMode = () => {
+    setMode((currMode) => (currMode === "light" ? "dark" : "light"));
+  }
+
+  // changes state to reflect if user is authenticated
+  const setAuthenticate = (isAuth) => {
+    setAuthenticated(isAuth);
   }
 
   useEffect(() => {

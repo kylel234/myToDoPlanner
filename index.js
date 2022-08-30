@@ -9,13 +9,11 @@ const PORT = process.env.PORT || 3001;
 //Middleware//
 app.use(cors());
 app.use(express.json()); // allows access to req.body(to access data from client side)
-app.use(express.static('../client/build'));
 
-console.log('../client/build')
-/*if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "production") {
     // allows us to serve static content to directory specified by us
     app.use(express.static(path.join(__dirname, "client/build"))); 
-}*/
+}
 
 //console.log(path.join(__dirname, "client/build"));
 //console.log((__dirname + '/client/build'));

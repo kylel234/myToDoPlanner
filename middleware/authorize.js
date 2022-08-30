@@ -14,6 +14,7 @@ module.exports = function(req, res, next) {
 
     try {
         const payload = jwt.verify(jwtoken, process.env.jwtSecret); // checks if token is verified, then provides payload(user id)
+        //console.log(process.env.jwtSecret);
         req.user = payload.user;
         next(); // countinues on in routes if token verified
     } catch(err) {
