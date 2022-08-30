@@ -22,7 +22,7 @@ const developmentConfig = {
 const productionConfig = {
     connectionString: process.env.DATABASE_URL // DATABASE_URL comes from heroku addon so we can connect to postgres db cloud service, thus our app can use postgres db
 }
-console.log(process.env.PG_PASSWORD);
+//console.log(process.env.PG_PASSWORD);
 
 // chooses the config based on if app is in production
 const pool = new Pool(process.env.NODE_ENV === "production" ? productionConfig : developmentConfig);

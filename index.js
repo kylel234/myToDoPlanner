@@ -4,6 +4,7 @@ const cors = require("cors"); // used to interact w/ diff domain apps, so backen
 //const pool = require("./db.js"); // gives access to run queries, as db.js code connects db to server
 //const router = require("./routes/authentication");
 const path = require("path");
+const PORT = process.env.PORT || 3001;
 
 //Middleware//
 app.use(cors());
@@ -89,6 +90,6 @@ app.use("/dashboard", require("./routes/dashboard"));
     }
 });*/
 
-app.listen(process.env.PORT || 3001, () => {
+app.listen(PORT, () => {
     console.log("Server starts");
 });
